@@ -28,5 +28,6 @@ The Homework have to be finished until the end of the course, before the exam. I
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
 
+Since we want to use very basic functions to load the data, download the MNIST dataset from http://yann.lecun.com/exdb/mnist/
 
 ## Homework Reinforcement Learning (Gorka Muñoz)
