@@ -6,6 +6,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.autograd import Variable
 
+
 def spin_config(number, n_vis): # generates a binary list from a number
     spins = list(map(int, list(format(number, 'b').zfill(n_vis))))
     spins.reverse()
@@ -42,7 +43,7 @@ class RBM(nn.Module):
     def __init__(self,
                  n_vis=10,
                  n_hin=50,
-                 k=5, gpu = False, continuous_visible = False, continuous_hidden = False, saved_weights = None):
+                 k=5, gpu = False, saved_weights = None):
         super(RBM, self).__init__()
         self.gpu = gpu
         if saved_weights is None:
@@ -55,8 +56,6 @@ class RBM(nn.Module):
             self.h_bias = saved_weights[2]
         self.k = k
         self.n_vis = n_vis
-        self.continuous_v = continuous_visible
-        self.continuous_h = continuous_hidden
         
         self.W_update = self.W.clone()
         self.h_bias_update = self.h_bias.clone()
@@ -73,7 +72,7 @@ class RBM(nn.Module):
         p_h = F.sigmoid(F.linear(v,self.W,self.h_bias))
         # p (h_j | v ) = sigma(b_j + sum_i v_i w_ij)
         sample_h = p_h.bernoulli()
-        return p_h if self.continuous_h else sample_h
+        return p_h, sample_h
     
     def h_to_v(self,h): # sample v given h
         if (self.gpu and not h.is_cuda):
@@ -81,16 +80,16 @@ class RBM(nn.Module):
         p_v = F.sigmoid(F.linear(h,self.W.t(),self.v_bias))
         # p (v_i | h ) = sigma(a_i + sum_j h_j w_ij)
         sample_v = p_v.bernoulli()
-        return p_v if self.continuous_v else sample_v
+        return p_v, sample_v
     
     def forward(self,v): # forward is pytorch standard fct that defines what happens with input data
         if (self.gpu and not v.is_cuda):
             v = v.cuda()
-        h1 = self.v_to_h(v)
+        p_h, h1 = self.v_to_h(v)
         h_ = h1
         for _ in range(self.k):
-            v_ = self.h_to_v(h_)
-            h_ = self.v_to_h(v_)
+            _, v_ = self.h_to_v(h_)
+            _, h_ = self.v_to_h(v_)
         return v,v_
         
     def free_energy(self,v): # exp( v_bias^transp*v + sum(log(1+exp(h_bias + W*v))))
@@ -108,8 +107,8 @@ class RBM(nn.Module):
     def draw_sample(self, sample_length):
         v_ = F.relu(torch.sign(Variable(torch.randn(self.n_vis))))
         for _ in range(sample_length):
-            h_ = self.v_to_h(v_)
-            v_ = self.h_to_v(h_)
+            _, h_ = self.v_to_h(v_)
+            _, v_ = self.h_to_v(h_)
         return v_
     
     # -------------------------------------------------------------------------
@@ -128,29 +127,22 @@ class RBM(nn.Module):
         loss_ = []
         for _, data in enumerate(train_loader):
             self.data = Variable(data.view(-1,self.n_vis))
-            
             if self.gpu:
                 self.data = self.data.cuda()
             
             # Get positive phase from the data
             self.vpos = self.data
-            self.hpos = self.v_to_h(self.vpos)
+            self.hpos_probability, self.hpos = self.v_to_h(self.vpos)
             # Get negative phase from the chains
             _, self.vneg = self.forward(self.vpos) # make actual k-step sampling
-            self.hneg = self.v_to_h(self.vneg)
-            if self.continuous_h == False:
-                self.continuous_h = True
-                self.hneg_probability = self.v_to_h(self.vneg)
-                self.continuous_h = False
-            else:
-                self.hneg_probability = self.v_to_h(self.vneg)
+            self.hneg_probability, self.hneg = self.v_to_h(self.vneg)
         
             self.W_update.data      *= momentum
             self.h_bias_update.data *= momentum
             self.v_bias_update.data *= momentum
             
-            self.deltaW = (outer_product(self.hpos, self.vpos)- outer_product(self.hneg_probability, self.vneg)).data.mean(0)
-            self.deltah = (self.hpos - self.hneg_probability).data.mean(0)
+            self.deltaW = (outer_product(self.hpos_probability, self.vpos)- outer_product(self.hneg_probability, self.vneg)).data.mean(0)
+            self.deltah = (self.hpos_probability - self.hneg_probability).data.mean(0)
             # change hneg_prob to hneg still works, but more wiggling
             self.deltav = (self.vpos - self.vneg).data.mean(0)
             # mean averages over all batches
