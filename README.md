@@ -50,6 +50,7 @@ Homework will be the following:
 
 **Second assignment b):** 
 - If you go to `RBM_helper.py` file and change function `draw_sample(self, sample_length)` such that the Gibbs sampling is not started with an random vector, but with an actual image from the training set. What happens then? (For this task you will have to change `RBM_helper.py`)
+
 **Third assignment:**
 - Use now the images from `Load_MNIST.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `RBM_blanked_test_images.npy` if you run `Load_MNIST.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
 - For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
