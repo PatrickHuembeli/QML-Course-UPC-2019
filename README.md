@@ -35,17 +35,20 @@ Homework will be the following:
 - The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests.
 - Make this file work on your computer and try to understand the code.
 - Test if the training worked well by sampling from the trained RBM. If you sample after training on this dummy data you should only get the strings [1,0,1,...] and [0,1,0,...] because this is the only data the RBM has seen. If you get other strings, your RBM is not trained perfectly. Increse for example epochs or lower the learning rate.
+
 **First assignment:** 
 - Comment the code in `RBM_helper`, `Loader_MNIST` and `RBM_cleaned_runner` as good as possible that other people can understand what it does. Everywhere in the code where you see the comment '#What does this code do?' you will have to add comments and put a pseudocode in your final report. Use clever names for your python functions to make references in the report that one can follow what you are referring to.
 - Examples for pseudo codes can be found e.g. [here](https://en.wikibooks.org/wiki/LaTeX/Algorithms) or [here](https://tex.stackexchange.com/questions/163768/write-pseudo-code-in-latex) 
-**Second assignment:** 
+
+**Second assignment a):** 
 - Train the RBM on the MNIST data.
 - The file Load_MNIST shows you already how to load MNIST files and how to make them from grey scale to black and white. Try to understand this file and use it or something similar to load your data.
 - For this we have to convert the 28x28 pixel images into a 784 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
 - Train the RBM the same way you did it on the dummy data set from before just with a different input dimension.
 - Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the numbers you sample good or are they blurry? What happens if you increase the training epochs or the steps of the Gibbs sampling?
 - Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
-**For volunteers and preparation for last assignment:** 
+
+**Second assignment b):** 
 - If you go to `RBM_helper.py` file and change function `draw_sample(self, sample_length)` such that the Gibbs sampling is not started with an random vector, but with an actual image from the training set. What happens then? (For this task you will have to change `RBM_helper.py`)
 **Third assignment:**
 - Use now the images from `Load_MNIST.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `RBM_blanked_test_images.npy` if you run `Load_MNIST.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
