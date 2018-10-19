@@ -29,6 +29,17 @@ The Homework have to be finished until the end of the course, before the exam. I
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
 
-Since we want to use very basic functions to load the data, download the MNIST dataset from http://yann.lecun.com/exdb/mnist/
+Since we want to use very basic functions to load the data, I downloaded the MNIST dataset from http://yann.lecun.com/exdb/mnist/ and put it in the 'RBM/data' folder. Use the 'Load_MNIST.py' file from the 'RBM' folder to load the files and explore the data set. I put some basic functions to open and show the images
+
+Homework will be the following:
+- The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [0,0,0,0,0,...] and [1,1,1,1,...] which can be used as a training set for first tests.
+- Make this file work on your computer and try to understand the code.
+- Test if the training worked well by sampling from the trained RBM. If you sample after training on this dummy data you should only get the strings [0,0,0,...] and [1,1,1,...] because this is the only data the RBM has seen. If you get other strings, your RBM is not trained perfectly. Increse for example epochs or lower the learning rate.
+- **First assignment:** Comment the code as good as possible that other people can understand what it does. Everywhere in the code where you see the comment '#What does this code do?' you will have to add comments and put a pseudocode in your final report. Use clever names for your python functions to make references in the report that one can follow what you are referring to.
+- Examples for pseudo codes can be found e.g. [here](https://en.wikibooks.org/wiki/LaTeX/Algorithms) or [here](https://tex.stackexchange.com/questions/163768/write-pseudo-code-in-latex) 
+- **Second assignment:** Train the RBM on the MNIST data.
+- For this we have to convert the 28x28 pixel images into a 784 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
+- Train the RBM the same way you did it on the dummy data set from before.
+- Sample from it and see what you obtain. Document this in the 
 
 ## Homework Reinforcement Learning (Gorka Muñoz)
