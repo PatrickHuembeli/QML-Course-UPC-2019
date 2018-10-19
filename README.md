@@ -40,11 +40,12 @@ Homework will be the following:
 - **Second assignment:** Train the RBM on the MNIST data.
 - The file Load_MNIST shows you already how to load MNIST files and how to make them from grey scale to black and white. Try to understand this file and use it or something similar to load your data.
 - For this we have to convert the 28x28 pixel images into a 784 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
-- Train the RBM the same way you did it on the dummy data set from before.
+- Train the RBM the same way you did it on the dummy data set from before just with a different input dimension.
 - Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the numbers you sample good or are they blurry? What happens if you increase the training epochs or the steps of the Gibbs sampling?
+- Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
 - **For volunteers and preparation for last assignment:** If you go to `RBM_helper.py` file and change function `draw_sample(self, sample_length)` such that the Gibbs sampling is not started with an random vector, but with an actual image from the training set. What happens then? (For this task you will have to change `RBM_helper.py`)
 - **Third assignment:**
 - Use now the images from `Load_MNIST.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `RBM_blanked_test_images.npy` if you run `Load_MNIST.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
-- For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output.
+- For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
 
 ## Homework Reinforcement Learning (Gorka Muñoz)
