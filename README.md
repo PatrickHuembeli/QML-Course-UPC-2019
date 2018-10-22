@@ -45,7 +45,8 @@ Homework will be the following:
 - The file Load_MNIST shows you already how to load MNIST files and how to make them from grey scale to black and white. Try to understand this file and use it or something similar to load your data.
 - For this we have to convert the 28x28 pixel images into a 784 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
 - Train the RBM the same way you did it on the dummy data set from before just with a different input dimension.
-- Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the numbers you sample good or are they blurry? What happens if you increase the training epochs or the steps of the Gibbs sampling?
+- Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the numbers you sample good or are they blurry or just random noise? What happens if you increase the training epochs or the steps of the Gibbs sampling?
+- What happens if you train the RBM just on one type of numbers. For example extract all the number 3 images from the data set and just train on them. To do so, the `data/` folder contains also the labels of the training set to find all images that contain e.g. a 3.
 - Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
 
 **Second assignment b):** 
