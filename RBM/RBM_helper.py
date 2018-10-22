@@ -164,4 +164,5 @@ class RBM(nn.Module):
                 self.v_bias.data += self.v_bias_update.data
                 
                 loss_.append(F.mse_loss(self.vneg, self.vpos).data[0])
+                # This line might cause errors in newer pytorch versions
 
