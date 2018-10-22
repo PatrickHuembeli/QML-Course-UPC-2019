@@ -17,5 +17,13 @@ for k in range(set_size):
     
 np.save('bars_and_stripes', dataset)   
 
+subset = dataset[0:10]
+for img in subset:
+    img[0:2,0:2]=0
+
+np.save('blanked_bars_and_stripes', subset) 
 # plt.imshow(dataset[0])
 # plt.show()  
+
+# plt.imshow(subset[0])
+# plt.show()

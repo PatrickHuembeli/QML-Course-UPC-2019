@@ -34,10 +34,7 @@ def outer_product(vecs1, vecs2):
         :type vecs2: list of torch.Tensor or torch.autograd.Variable
         :returns: torch.Tensor or torch.autograd.Variable of size (m, n)
         '''
-    return torch.bmm(vecs1.unsqueeze(2), vecs2.unsqueeze(1)) #batch-matrix-matrix product
-# (b x n x m) @ (b x m x p) = (b x n x p), where b is the batch size, normal matrix multiplication
-# unsqueeze(pos) gives a new dimension at position 'pos' with size one.
-# x = [1,2,3,4], x.unsqueeze(0) has shape (1,4). x.unsqueeze(1) has shape (4,1)
+    return torch.bmm(vecs1.unsqueeze(2), vecs2.unsqueeze(1)) 
 
 class RBM(nn.Module):
     def __init__(self,
@@ -66,6 +63,8 @@ class RBM(nn.Module):
             self.v_bias_update = self.v_bias_update.cuda()
             self.h_bias_update = self.h_bias_update.cuda()
 
+    #--------------------------------------------------------------------------
+    # What does this code do? 
     def v_to_h(self,v): # sample h, given v
         if (self.gpu and not v.is_cuda):
             v = v.cuda()
@@ -73,7 +72,9 @@ class RBM(nn.Module):
         # p (h_j | v ) = sigma(b_j + sum_i v_i w_ij)
         sample_h = p_h.bernoulli()
         return p_h, sample_h
-    
+
+    #--------------------------------------------------------------------------
+    # What does this code do?     
     def h_to_v(self,h): # sample v given h
         if (self.gpu and not h.is_cuda):
             h = h.cuda()
@@ -82,7 +83,7 @@ class RBM(nn.Module):
         sample_v = p_v.bernoulli()
         return p_v, sample_v
     
-    def forward(self,v): # forward is pytorch standard fct that defines what happens with input data
+    def forward(self,v): 
         if (self.gpu and not v.is_cuda):
             v = v.cuda()
         p_h, h1 = self.v_to_h(v)
@@ -92,18 +93,18 @@ class RBM(nn.Module):
             _, h_ = self.v_to_h(v_)
         return v,v_
         
-    def free_energy(self,v): # exp( v_bias^transp*v + sum(log(1+exp(h_bias + W*v))))
+    def free_energy(self,v): 
         if (self.gpu and not v.is_cuda):
             v = v.cuda()
         if len(v.shape)<2: #if v is just ONE vector
             v = v.view(1, v.shape[0])
-        vbias_term = v.mv(self.v_bias) # v_bias^transp*v; should give a scalar for every element of batch
-        wx_b = F.linear(v,self.W,self.h_bias) # v*W^transp + h_bias
-        # wx_b has dimension batch_size x v_dim
-        hidden_term = wx_b.exp().add(1).log().sum(1) # sum indicates over which tensor index we sum
-        # hidden_term has dim batch_size
-        return (-hidden_term - vbias_term) # returns the free energies of all the input spins in a vector
-    
+        vbias_term = v.mv(self.v_bias) 
+        wx_b = F.linear(v,self.W,self.h_bias) 
+        hidden_term = wx_b.exp().add(1).log().sum(1) 
+        return (-hidden_term - vbias_term) 
+
+    #--------------------------------------------------------------------------
+    # What does this code do?     
     def draw_sample(self, sample_length):
         v_ = F.relu(torch.sign(Variable(torch.randn(self.n_vis))))
         for _ in range(sample_length):
@@ -112,9 +113,6 @@ class RBM(nn.Module):
         return v_
     
     # -------------------------------------------------------------------------
-    # TO DO (for n_hidden > 150 does not work)
-    # Calculate exp( log( p(v))) to avoid exploding exponentials
-    # exp ( -epsilon(v) - log(Z) )
     def partition_fct(self, spins):
         return (-self.free_energy(spins)).exp().sum()
 
@@ -122,7 +120,9 @@ class RBM(nn.Module):
         epsilon = (-self.free_energy(v)).exp().sum()
         Z = self.partition_fct(all_spins)
         return epsilon/Z
-    
+
+    #--------------------------------------------------------------------------
+    # What does this code do?    
     def train(self, train_loader, lr= 0.01, weight_decay=0, momentum=0.9, epoch=0):
         loss_ = []
         for _, data in enumerate(train_loader):
@@ -143,7 +143,6 @@ class RBM(nn.Module):
             
             self.deltaW = (outer_product(self.hpos_probability, self.vpos)- outer_product(self.hneg_probability, self.vneg)).data.mean(0)
             self.deltah = (self.hpos_probability - self.hneg_probability).data.mean(0)
-            # change hneg_prob to hneg still works, but more wiggling
             self.deltav = (self.vpos - self.vneg).data.mean(0)
             # mean averages over all batches
             if self.gpu:
@@ -154,15 +153,11 @@ class RBM(nn.Module):
                 self.W_update.data      += (lr * self.deltaW)
                 self.h_bias_update.data += (lr * self.deltah)
                 self.v_bias_update.data += (lr * self.deltav)
-                # Update rule is W <- W + lr*(h_0 x_0 - h_k x_k)
-                # But generally it is defined as W = W - v
-                # Therefore v = -lr deltaW --> v in our case is W_update
-                # With momentum we get v_t+1 = m*v_t + lr deltaW
+
                     
                 self.W.data      += self.W_update.data
                 self.h_bias.data += self.h_bias_update.data
                 self.v_bias.data += self.v_bias_update.data
                 
                 loss_.append(F.mse_loss(self.vneg, self.vpos).data[0])
-                # This line might cause errors in newer pytorch versions
 

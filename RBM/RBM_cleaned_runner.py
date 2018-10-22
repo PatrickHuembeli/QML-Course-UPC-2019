@@ -36,6 +36,7 @@ train_loader = torch.utils.data.DataLoader(data, batch_size=batch_size,
                                            shuffle=True)
 
 for epoch in range(epochs):
+    # What does this code do? (next 5 lines?)
     train_loader = torch.utils.data.DataLoader(data, batch_size=batch_size,
                                                shuffle=True)
     print(epoch)
