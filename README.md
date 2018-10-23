@@ -31,7 +31,7 @@ The Homework have to be finished until the end of the course, before the exam. I
 
 Homework will be the following:
 - The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests.
-- Make this file work on your computer and try to understand the code.
+- Make the file `RBM_cleaned_runner.py` work on your computer and try to understand the code.
 - Test if the training worked well by sampling from the trained RBM. If you sample after training on this dummy data you should only get the strings [1,0,1,...] and [0,1,0,...] because this is the only data the RBM has seen. If you get other strings, your RBM is not trained perfectly. Increse for example epochs or lower the learning rate.
 
 **First assignment:** 
