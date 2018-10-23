@@ -8,6 +8,8 @@ The following [link](https://colab.research.google.com/drive/1_pmKbc_sN32TMHSXot
 
 This file will help you set up the first neural network that classifies Ising configurations according to their phases, like in this [publication](https://arxiv.org/pdf/1605.01735.pdf). The data for this can be found on https://github.com/carrasqu/data_nature_phy_paper, which is the author's GitHub page.
 
+Don't forget to activate the GPUs/TPUs (Go to Edit and then notebook settings) when using keras or pytorch. Beware: TPUs work only with tensorflow and keras.
+
 # Homework
 - First you need to set up your programming environment. If you have a Linux or Mac computer then we recommend installing [Conda](https://www.anaconda.com/download/#macos) and install all the packages with it. Google will help you out.
 In the end you will need especially [pytorch](https://pytorch.org/).
@@ -25,6 +27,27 @@ The Homework have to be finished until the end of the course, before the exam. I
 
 ## Homework Fully Connected and Convolutional Neural Network (Alexandre Dauphin)
 
+Recomendation: Use the TPUs. It will be faster than the GPUs.
+
+
+**First assignment (warmup):** 
+
+- Edit the notebook of the course and the Dropout function to the fully connected neural network. Look at the Loss function and the accuracy of both training and validation sets. Describe the effect of the Dropout.
+-Run the unsupervised algorithm t-SNE (an implementation is present in scikit learn) on the original MNIST data and compare with the results of PCA. Is there some interesting structure in the original data?
+
+** Second assignment: **
+
+- Import the cifar10 dataset (present in keras)
+- Explore the different kind of images present in the dataset.
+- This dataset is known to be much more difficult to classify than the MNIST dataset.
+- Do a PCA analysis of the original data. Is there some visible structure in the data?
+- Implement a fully connected neural network to classify the cifar10 dataset (you can use a similar architecture to the one for the MNIST with redefined dimensions, do 20 epochs). It should work poorly. 
+- Do a PCA analysis on the output. 
+- Implement a CNN. I propose the following structure: 7 convolutional layers with respectively 32,32,64,64,128,128,128 filters of size 3X3.  Add a maxpooling after the second layer, the fourth layer and the sixth layer.
+- Train the CNN (40 epochs, batch size 128) and study the loss function/ accuracy. This could take several hours so don't forget to use the callbacks to save the weights.
+- Add Batch normalization layers and dropout. Does it help to converge?
+- Do a PCA analysis and k-means on the layer before the classifier. 
+- Implement the data augmentation. Explore the generated images and train the model with data augmentation.
 
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
