@@ -35,7 +35,7 @@ Recomendation: Use the TPUs. It will be faster than the GPUs.
 - Edit the notebook of the course and the Dropout function to the fully connected neural network. Look at the Loss function and the accuracy of both training and validation sets. Describe the effect of the Dropout.
 -Run the unsupervised algorithm t-SNE (an implementation is present in scikit learn) on the original MNIST data and compare with the results of PCA. Is there some interesting structure in the original data?
 
-** Second assignment: **
+**Second assignment:**
 
 - Import the cifar10 dataset (present in keras)
 - Explore the different kind of images present in the dataset.
