@@ -43,7 +43,7 @@ Homework will be the following:
 - To start I recommend Bars and Stripes, because it needs much less computational resources. In the file `Bars_and_Stripes.py` you can see how the data set is generated and saved to a `.npy` file.
 - We have to convert the 4x4 pixel images into a 16 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
 - Train the RBM the same way you did it on the dummy data set from before just with a different input dimension.
-- Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the numbers you sample good or are they blurry or just random noise? What happens if you increase the training epochs or the steps of the Gibbs sampling?
+- Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the bars and stripes you sample good or are they blurry or just random noise? What happens if you increase the training epochs or the steps of the Gibbs sampling?
 - Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
 
 **Second assignment more information for MNIST:**
