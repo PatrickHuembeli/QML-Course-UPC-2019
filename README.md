@@ -48,6 +48,7 @@ Recomendation: Use the TPUs. It will be faster than the GPUs.
 - Add Batch normalization layers and dropout. Does it help to converge?
 - Do a PCA analysis and k-means on the layer before the classifier. 
 - Implement the data augmentation. Explore the generated images and train the model with data augmentation.
+- At the end of the day, you should be able to reach more than 80% of accuracy on the test set.
 
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
