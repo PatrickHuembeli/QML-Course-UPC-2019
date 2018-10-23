@@ -7,22 +7,6 @@ import torch.optim as optim
 from torch.autograd import Variable
 
 
-def spin_config(number, n_vis): # generates a binary list from a number
-    spins = list(map(int, list(format(number, 'b').zfill(n_vis))))
-    spins.reverse()
-    return spins
-
-def spin_list(n_vis): # returns a list of all possible spin configurations for n_vis spins
-    spins = [spin_config(number, n_vis) for number in range(2**n_vis)  ]
-    spins = Variable(torch.FloatTensor(spins))
-    return spins
-
-def overlapp_fct(all_spins, data, psi):
-    a = 0
-    for i in range(len(data)):
-        a += psi[i]*torch.sqrt(rbm.probability_of_v(all_spins, data[i]))
-    return a.data[0]
-
 def outer_product(vecs1, vecs2):
     '''Computes the outer product of batches of vectors
         
