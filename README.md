@@ -29,8 +29,6 @@ The Homework have to be finished until the end of the course, before the exam. I
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
 
-Since we want to use very basic functions to load the data, I downloaded the MNIST dataset from http://yann.lecun.com/exdb/mnist/ and put it in the 'RBM/data' folder. Use the 'Load_MNIST.py' file from the 'RBM' folder to load the files and explore the data set. I put some basic functions to open and show the images.
-
 Homework will be the following:
 - The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests.
 - Make this file work on your computer and try to understand the code.
@@ -49,6 +47,8 @@ Homework will be the following:
 - Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
 
 **Second assignment more information for MNIST:**
+
+Since we want to use very basic functions to load the data, I downloaded the MNIST dataset from http://yann.lecun.com/exdb/mnist/ and put it in the 'RBM/data' folder. Use the 'Load_MNIST.py' file from the 'RBM' folder to load the files and explore the data set. I put some basic functions to open and show the images.
 
 - MNIST is a bit more challenging, but also more interesting to play with. So if you decide to train your RBM on MNIST instead of Bars and Stripes, follow these steps.
 - The file `Load_MNIST.py` shows you already how to load MNIST files and how to make them from grey scale to black and white. Try to understand this file and use it or something similar to load your data.
