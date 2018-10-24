@@ -57,3 +57,10 @@ Homework will be the following:
 - For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
 
 ## Homework Reinforcement Learning (Gorka Muñoz)
+
+**First assignment:**
+- Train a policy which learns which arm of a multiarmed bandit needs to be pulled to get the highest reward. You can find the class describing the mult-armed bandit in *MBA.py*.
+The policy should be based on the incremental implementation and the *e*-greedy method. For *e* = [0,0.01,0.1], plot the reward obtained at each episode (go up to 1000 episodes), averaged over 2000 runs of the algorithm. Each run consists in the training of a zero-initialized policy.
+
+**Second assignment:**
+- Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
