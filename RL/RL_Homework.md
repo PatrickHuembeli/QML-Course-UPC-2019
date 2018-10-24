@@ -5,4 +5,4 @@
 The policy should be based on the incremental implementation and the *e*-greedy method. For *e* = [0,0.01,0.1], plot the reward obtained at each episode (go up to 1000 episodes), averaged over 2000 runs of the algorithm. Each run consists in the training of a zero-initialized policy.
 
 **Second assignment:**
-- Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come
+- Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
