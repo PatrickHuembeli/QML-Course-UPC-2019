@@ -89,4 +89,11 @@ Since we want to use very basic functions to load the data, I downloaded the MNI
 - Use now the images from `Bars_and_Stripes.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `blanked_bars_and_stripes.npy` if you run `Bars_and_Stripes.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
 - For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
 
-## Homework Reinforcement Learning (Gorka Muñoz)
+## Homework Reinforcement Learning (Gorka Muñoz-Gil)
+
+**First assignment:**
+- Train a policy which learns which arm of a multiarmed bandit needs to be pulled to get the highest reward. You can find the class describing the mult-armed bandit in *MBA.py*.
+The policy should be based on the incremental implementation and the *e*-greedy method. For *e* = [0,0.01,0.1], plot the reward obtained at each episode (go up to 1000 episodes), averaged over 2000 runs of the algorithm. Each run consists in the training of a zero-initialized policy.
+
+**Second assignment:**
+- Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
