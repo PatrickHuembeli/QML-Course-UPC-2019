@@ -50,6 +50,7 @@ Recomendation: Use the TPUs. It will be faster than the GPUs.
 - Do a PCA analysis and k-means on the layer before the classifier. 
 - Implement the data augmentation. Explore the generated images and train the model with data augmentation.
 - At the end of the day, you should be able to reach more than 80% of accuracy on the test set.
+- Apply the transfer learning for the cifar10 classification (10 epochs). How well is working the transfer learning?
 
 
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
