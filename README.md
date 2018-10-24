@@ -32,7 +32,7 @@ Recomendation: Use the TPUs. It will be faster than the GPUs.
 
 **First assignment (warmup):** 
 
-- Implement the k-means algrithm for a two dimensional dataset. You can generate benchmark examples with [make_blobs] (http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs). 
+- Implement the k-means algrithm for a two dimensional dataset. You can generate benchmark examples with [make_blobs](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs). 
 - Edit the notebook of the course and the Dropout function to the fully connected neural network. Look at the Loss function and the accuracy of both training and validation sets. Describe the effect of the Dropout.
 - Run the unsupervised algorithm t-SNE (an implementation is present in scikit learn) on the original MNIST data and compare with the results of PCA. Is there some interesting structure in the original data?
 
