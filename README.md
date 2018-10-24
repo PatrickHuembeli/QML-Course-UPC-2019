@@ -56,7 +56,7 @@ Homework will be the following:
 - Use now the images from `Load_MNIST.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `RBM_blanked_test_images.npy` if you run `Load_MNIST.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
 - For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
 
-## Homework Reinforcement Learning (Gorka Muñoz)
+## Homework Reinforcement Learning (Gorka Muñoz-Gil)
 
 **First assignment:**
 - Train a policy which learns which arm of a multiarmed bandit needs to be pulled to get the highest reward. You can find the class describing the mult-armed bandit in *MBA.py*.
