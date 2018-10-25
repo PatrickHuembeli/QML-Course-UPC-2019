@@ -5,7 +5,7 @@ Coding exercises for UPC QML course
 - First you need to set up your programming environment. If you have a Linux or Mac computer then we recommend installing [Conda](https://www.anaconda.com/download/#macos) and install all the packages with it. Google will help you out.
 In the end you will need especially [pytorch](https://pytorch.org/).
 
-- If you have a windows computer we recommend using the Google Colab file from above. You can also use it if you don't want to set up your own programming environment on Linux and Mac.
+- If you have a windows computer we recommend using Google Colab. The first homework will be in Colab anyway and at the end of this instructions you can find a link, where you can actually reproduce results of a paper in Colab. You can also use it if you don't want to set up your own programming environment on Linux and Mac.
 
 ## Homework General
 
