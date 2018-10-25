@@ -1,15 +1,6 @@
 # QML-Course-UPC-2018
 Coding exercises for UPC QML course
 
-
-# Google Colab File
-For those who cannot make pytorch run on their computer, they can create a google Colab file. For this they need a google / gmail account and access their google drive.
-The following [link](https://colab.research.google.com/drive/1_pmKbc_sN32TMHSXotBug-QqJAHkT9-s) provides a Colab file that helps you set up everything. You can access your data on your google drive and install python packages like pytorch.
-
-This file will help you set up the first neural network that classifies Ising configurations according to their phases, like in this [publication](https://arxiv.org/pdf/1605.01735.pdf). The data for this can be found on https://github.com/carrasqu/data_nature_phy_paper, which is the author's GitHub page.
-
-Don't forget to activate the GPUs/TPUs (Go to Edit and then notebook settings) when using keras or pytorch. Beware: TPUs work only with tensorflow and keras.
-
 # Homework
 - First you need to set up your programming environment. If you have a Linux or Mac computer then we recommend installing [Conda](https://www.anaconda.com/download/#macos) and install all the packages with it. Google will help you out.
 In the end you will need especially [pytorch](https://pytorch.org/).
@@ -99,3 +90,16 @@ The policy should be based on the incremental implementation and the *e*-greedy 
 
 **Second assignment:**
 - Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
+
+# Google Colab File
+For those who cannot make all the packages run on their computer, they can create a google Colab file. For this they need a google / gmail account and access their google drive.
+
+The Homework for fully connected NN and CNN should be done in the Colab file directly. The other homework can be done either on Colab or locally.
+
+
+**Pytorch and Colab**
+The following [link](https://colab.research.google.com/drive/1_pmKbc_sN32TMHSXotBug-QqJAHkT9-s) provides a Colab file that helps you set up everything on Colab for pytorch. You will be able to access your data on your google drive and install python packages like pytorch.
+
+This file will help you set up the first neural network that classifies Ising configurations according to their phases, like in this [publication](https://arxiv.org/pdf/1605.01735.pdf). The data for this can be found on https://github.com/carrasqu/data_nature_phy_paper, which is the author's GitHub page. **This is not homework. This file just provides an example how to set up everything. But for those interested we recommend to reproduce the [paper](https://arxiv.org/pdf/1605.01735.pdf)**
+
+Don't forget to activate the GPUs/TPUs (Go to Edit and then notebook settings) when using keras or pytorch. Beware: TPUs work only with tensorflow and keras.
