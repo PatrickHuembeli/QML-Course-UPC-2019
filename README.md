@@ -47,9 +47,9 @@ Recomendation: Use the TPUs. It will be faster than the GPUs.
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
 
 Homework will be the following:
-- The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests.
+- The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests. If you run `RBM_cleaned_runner.py` it should train on this simple dummy set.
 - Make the file `RBM_cleaned_runner.py` work on your computer and try to understand the code.
-- Test if the training worked well by sampling from the trained RBM. If you sample after training on this dummy data you should only get the strings [1,0,1,...] and [0,1,0,...] because this is the only data the RBM has seen. If you get other strings, your RBM is not trained perfectly. Increse for example epochs or lower the learning rate.
+- Test if the training worked well by sampling from the trained RBM. If you sample after training on this dummy data you should only get the strings [1,0,1,...] and [0,1,0,...] because this is the only data the RBM has seen. If you get other strings, your RBM is not trained perfectly. This will happen at some point and this is totally normal. Try to improve the training and play with this file.
 
 **First assignment:** 
 - Comment the code in `RBM_helper` and `RBM_cleaned_runner` as good as possible that other people can understand what it does. Everywhere in the code where you see the comment '#What does this code do?' you will have to add comments and put a pseudocode in your final report. Use clever names for your python functions to make references in the report that one can follow what you are referring to.
@@ -61,11 +61,11 @@ Homework will be the following:
 - We have to convert the 4x4 pixel images into a 16 dimensional vector and put them into a RBM with the same input dimension. Find out how to do this with for example 'numpy'.
 - Train the RBM the same way you did it on the dummy data set from before just with a different input dimension.
 - Sample from it and see what you obtain. Document this in the final report. Describe what happens. Are the bars and stripes you sample good or are they blurry or just random noise? What happens if you increase the training epochs or the steps of the Gibbs sampling? Be aware that you have to transform the output of the RBM back to a 4x4 image. The same way you transformed the 4x4 image befor eto a 16 dimensional vector.
-- Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like?
+- Explore what happens if you change the number of hidden units. In the code so far we set the number of visible and hidden units equal. Can we still learn anything if we take e.g. 4 times less hidden units? How do the images look like? Explore and discuss!
 
 **Second assignment more information for MNIST:**
 
-Fell free to do the 2nd assigment with MNIST. You will be able to get full points just with Bars and Stripes, but we will for sure appreciate the extra effort and give some extrapoints for the other tasks.
+Fell free to do the 2nd assigment with MNIST. You will be able to get full points just with Bars and Stripes, but we will for sure appreciate the extra effort and give some extrapoints for the other tasks. I recommend using a Google Colab file with GPU to train the MNIST. On a CPU it will take quite some time. For this you will have to set up a Colab file that can run all the codes.
 
 Since we want to use very basic functions to load the data, I downloaded the MNIST dataset from http://yann.lecun.com/exdb/mnist/ and put it in the 'RBM/data' folder. Use the 'Load_MNIST.py' file from the 'RBM' folder to load the files and explore the data set. I put some basic functions to open and show the images.
 
@@ -76,7 +76,7 @@ Since we want to use very basic functions to load the data, I downloaded the MNI
 
 
 **Second assignment b):** 
-- If you go to `RBM_helper.py` file and change function `draw_sample(self, sample_length)` such that the Gibbs sampling is not started with an random vector, but with an actual image from the training set. What happens then? (For this task you will have to change `RBM_helper.py`)
+- If you go to `RBM_helper.py` file and change function `draw_sample(self, sample_length)` such that the Gibbs sampling is not started with an random vector, but with an actual image from the training set. What happens then? (For this task you will have to change `RBM_helper.py`). Play with the number of Gibbs steps. Does it make a big difference?
 
 **Third assignment:**
 - Use now the images from `Bars_and_Stripes.py` that are partially blanked, which are stored in the vraiable 'subset' and also saved as a numpy file `blanked_bars_and_stripes.npy` if you run `Bars_and_Stripes.py`. You can think of these images as partially damaged and we would like to reconstruct them with our trained RBM.
