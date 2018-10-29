@@ -8,16 +8,7 @@ from torch.autograd import Variable
 
 
 def outer_product(vecs1, vecs2):
-    '''Computes the outer product of batches of vectors
-        
-        Arguments:
-        
-        :param vecs1: b 1-D tensors of length m
-        :type vecs1: list of torch.Tensor or torch.autograd.Variable
-        :param vecs2: b 1-D tensors of length n
-        :type vecs2: list of torch.Tensor or torch.autograd.Variable
-        :returns: torch.Tensor or torch.autograd.Variable of size (m, n)
-        '''
+    # A way to calculate outer vector products in torch
     return torch.bmm(vecs1.unsqueeze(2), vecs2.unsqueeze(1)) 
 
 class RBM(nn.Module):
@@ -103,7 +94,7 @@ class RBM(nn.Module):
     def probability_of_v(self, all_spins, v):
         epsilon = (-self.free_energy(v)).exp().sum()
         Z = self.partition_fct(all_spins)
-        return epsilon/Z
+        return epsilonW/Z
 
     #--------------------------------------------------------------------------
     # What does this code do?    

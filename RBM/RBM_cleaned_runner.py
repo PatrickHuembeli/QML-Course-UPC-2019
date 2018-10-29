@@ -5,13 +5,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.autograd import Variable
-from RBM_helper import spin_config, spin_list, overlapp_fct, RBM
+from RBM_helper import RBM
 import gzip
 import pickle
 
 batch_size = 512
 epochs = 200
-all_spins = spin_list(10)
 gpu = False
 
 dummy_training = True
