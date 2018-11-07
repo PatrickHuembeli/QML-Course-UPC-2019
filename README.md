@@ -84,9 +84,17 @@ Since we want to use very basic functions to load the data, I downloaded the MNI
 
 ## Homework Reinforcement Learning (Gorka Muñoz-Gil)
 
-**First assignment:**
-- Train a policy which learns which arm of a multiarmed bandit needs to be pulled to get the highest reward. You can find the class describing the mult-armed bandit in *MBA.py*.
-The policy should be based on the incremental implementation and the *e*-greedy method. For *e* = [0,0.01,0.1], plot the reward obtained at each episode (go up to 1000 episodes), averaged over 2000 runs of the algorithm. Each run consists in the training of a zero-initialized policy.
+**First assignment: Solving a 'Gaussian' 10-bandit problem**
+
+The goal of this homework is to create a policy able to get the maximum reward playing a 10-armed bandit. Each of the ten arms reward *R_i* is selected following a normal distribution with mean zero and unit variance. Each time arm $i$ is pulled, the bandit outputs a reward selected according to a mean *R_i* unit variance normal distribution. Follow these steps:
+
+a) Create a policy based in the incremental implementation to solve the given 10-armed bandit. Train it over 1000 episodes. Plot the results
+
+b) Run the previous code 2000 runs, where at each round you reinitialize the environment and policy. Plot the average reward obtained as a function of the episode number.
+
+c) Apply now the *e*-greedy algorithm, for *e* = [0.1, 0.01]. Do the two previous steps for each value of *e* and compare the results obtained.
+
+The function creating the multi-armed bandit can be found in *RL/MBA.py*
 
 **Second assignment:**
 - Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
