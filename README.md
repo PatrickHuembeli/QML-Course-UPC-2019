@@ -99,7 +99,7 @@ c) Apply now the *e*-greedy algorithm, for *e* = [0.1, 0.01]. Do the two previou
 The function creating the multi-armed bandit can be found in *RL/MBA.py*
 
 **Second assignment:**
-- Train a policy to find which frequency can drive a three level system from the initial state to a target state. More details to come...
+This homework will be based on the concepts exposed in this [colab notebook](https://colab.research.google.com/drive/12HsUTlcXThcJm0ua0hdv7Ibg3fsYdfqc).
 
 # Google Colab File
 For those who cannot make all the packages run on their computer, they can create a google Colab file. For this they need a google / gmail account and access their google drive.
