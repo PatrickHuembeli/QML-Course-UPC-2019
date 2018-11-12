@@ -84,6 +84,8 @@ Since we want to use very basic functions to load the data, I downloaded the MNI
 
 ## Homework Reinforcement Learning (Gorka Muñoz-Gil)
 
+During the first session, we will take a look to the following paper: [Active learning machine learns to create new quantum experiments, A. Melnikov et al., PNAS (2017)](http://www.pnas.org/content/115/6/1221).
+
 **First assignment: Solving a 'Gaussian' 10-bandit problem**
 
 The goal of this homework is to create a policy able to get the maximum reward playing a 10-armed bandit. Each of the ten arms reward *R_i* is selected following a normal distribution with mean zero and unit variance. Each time arm $i$ is pulled, the bandit outputs a reward selected according to a mean *R_i* unit variance normal distribution. Follow these steps:
