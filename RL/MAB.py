@@ -1,6 +1,6 @@
 import numpy as np
 
-class MBA:
+class MAB:
   ''' Creates a multiarmed bandit where each bandit outputs a reward coming 
   from a Gaussian distribution. '''
   
@@ -18,3 +18,12 @@ class MBA:
     else: 
       reward = np.random.normal(self.prob_b[action],1)
       return reward
+
+    
+# To create the environment use:
+number_bandits = 10
+mab_environment = MAB(num_b = number_bandits)
+
+# To do an action over the environment and get the reward use:
+action = 1 # As we have 10 bandits, action must be a number between 0 and 9
+reward = mab_environment.get_reward(action)
