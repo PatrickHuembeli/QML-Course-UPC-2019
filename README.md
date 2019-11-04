@@ -122,8 +122,6 @@ The Homework for fully connected NN and CNN should be done in the Colab file dir
 
 
 **Pytorch and Colab**
-The following [link](https://colab.research.google.com/drive/1_pmKbc_sN32TMHSXotBug-QqJAHkT9-s) provides a Colab file that helps you set up everything on Colab for pytorch. You will be able to access your data on your google drive and install python packages like pytorch.
-
-This file will help you set up the first neural network that classifies Ising configurations according to their phases, like in this [publication](https://arxiv.org/pdf/1605.01735.pdf). The data for this can be found on https://github.com/carrasqu/data_nature_phy_paper, which is the author's GitHub page. **This is not homework. This file just provides an example how to set up everything. But for those interested we recommend to reproduce the [paper](https://arxiv.org/pdf/1605.01735.pdf)**
+The following [link](https://drive.google.com/file/d/1Ppzwrb8yCDe7yF_OXJql-ygCeVOKxcs4/view?usp=sharing) provides a Colab file that helps you set up everything on Colab for pytorch and the how to load files on Colab.
 
 Don't forget to activate the GPUs/TPUs (Go to Edit and then notebook settings) when using keras or pytorch. Beware: TPUs work only with tensorflow and keras.
