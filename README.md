@@ -1,4 +1,4 @@
-# QML-Course-UPC-2018
+# QML-Course-UPC-2019
 Coding exercises for UPC QML course
 
 # Homework
@@ -16,35 +16,12 @@ The Homework have to be finished until the end of the course, before the exam. I
 - A description in your own words, what you were doing and explaining the code.
 - Results such as figures or diagrams.
 
-## Homework Fully Connected and Convolutional Neural Network (Alexandre Dauphin)
-
-Recomendation: Use the TPUs. It will be faster than the GPUs.
-
-
-**First assignment (warmup):** 
-
-- Implement the k-means algrithm for a two dimensional dataset. Benchmark it for an example with 2 and 3 clusters. You can generate benchmark examples with [make_blobs](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs). Show a scatter plot of the results where the color corresponds to the results of the k-means algorithm. What happens if you ask k-means to find more clusters than the real number?
-- Edit the notebook of the course and the Dropout function to the fully connected neural network. Look at the Loss function and the accuracy of both training and validation sets. Describe the effect of the Dropout.
-- Run the unsupervised algorithm t-SNE (an implementation is present in scikit learn) on the original MNIST data and compare with the results of PCA. Is there some interesting structure in the original data?
-
-**Second assignment:**
-
-- Import the cifar10 dataset (present in keras)
-- Explore the different kind of images present in the dataset.
-- This dataset is known to be much more difficult to classify than the MNIST dataset.
-- Do a PCA analysis of the original data. Is there some visible structure in the data?
-- Implement a fully connected neural network to classify the cifar10 dataset (you can use a similar architecture to the one for the MNIST with redefined dimensions, do 20 epochs). It should work poorly. 
-- Do a PCA analysis on the output. 
-- Implement a CNN. I propose the following structure: 7 convolutional layers with respectively 32,32,64,64,128,128,128 filters of size 3X3.  Add a maxpooling after the second layer, the fourth layer and the sixth layer.
-- Train the CNN (40 epochs, batch size 128) and study the loss function/ accuracy. This could take several hours so don't forget to use the callbacks to save the weights.
-- Add Batch normalization layers and dropout. Does it help to converge?
-- Do a PCA analysis and k-means on the layer before the classifier. 
-- Implement the data augmentation. Explore the generated images and train the model with data augmentation.
-- At the end of the day, you should be able to reach more than 80% of accuracy on the test set.
-- Apply the transfer learning for the cifar10 classification (10 epochs). How well is working the transfer learning?
-
-
 ## Homework Restricted Boltzmann Machines (Patrick Huembeli)
+
+### Additional reading to the Class
+
+- For more explanations about the derivation of the update rule of the RBM go [here](https://qucumber.readthedocs.io/en/stable/_static/RBM_tutorial.pdf)
+- For more info about [Hopfield networks](https://page.mi.fu-berlin.de/rojas/neural/chapter/K13.pdf), the XOR problem (page 347), the Hebbian learning and why it the data becomes minimu energy (page 354) have a look [here](https://page.mi.fu-berlin.de/rojas/neural/chapter/K13.pdf).
 
 Homework will be the following:
 - The 'RBM' folder contains a fully working restricted Boltzmann machine and a dummy dataset that only contains strings of [1,0,1,0,...] and [0,1,0,1,...] which can be used as a training set for first tests. If you run `RBM_cleaned_runner.py` it should train on this simple dummy set.
@@ -83,6 +60,37 @@ Since we want to use very basic functions to load the data, I downloaded the MNI
 - For this you will have to make changes in the `RBM_helper.py` file. In the function `draw_sample(self, sample_length)` we so far used a random vector to start the Gibbs sampling and make `sample_length` Gibbs setps until we obtain an output. Now we would like to start the Gibbs sampling with the 'damaged' images and see if we can reconstruct them. Do that and show your results.
 
 **Update:** If the outcome of the reconstructed image is just a random sample from the dataset and not the image that was damaged, you will have to fix the pixels of the input image that are not damaged after every Gibbs step. Give it a try and check if your results improve. **Sorry for the late notice. This update will not be relevant for the mark of your report.**
+
+
+## Homework Fully Connected and Convolutional Neural Network (Alexandre Dauphin)
+
+Recomendation: Use the TPUs. It will be faster than the GPUs.
+
+
+**First assignment (warmup):** 
+
+- Implement the k-means algrithm for a two dimensional dataset. Benchmark it for an example with 2 and 3 clusters. You can generate benchmark examples with [make_blobs](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs). Show a scatter plot of the results where the color corresponds to the results of the k-means algorithm. What happens if you ask k-means to find more clusters than the real number?
+- Edit the notebook of the course and the Dropout function to the fully connected neural network. Look at the Loss function and the accuracy of both training and validation sets. Describe the effect of the Dropout.
+- Run the unsupervised algorithm t-SNE (an implementation is present in scikit learn) on the original MNIST data and compare with the results of PCA. Is there some interesting structure in the original data?
+
+**Second assignment:**
+
+- Import the cifar10 dataset (present in keras)
+- Explore the different kind of images present in the dataset.
+- This dataset is known to be much more difficult to classify than the MNIST dataset.
+- Do a PCA analysis of the original data. Is there some visible structure in the data?
+- Implement a fully connected neural network to classify the cifar10 dataset (you can use a similar architecture to the one for the MNIST with redefined dimensions, do 20 epochs). It should work poorly. 
+- Do a PCA analysis on the output. 
+- Implement a CNN. I propose the following structure: 7 convolutional layers with respectively 32,32,64,64,128,128,128 filters of size 3X3.  Add a maxpooling after the second layer, the fourth layer and the sixth layer.
+- Train the CNN (40 epochs, batch size 128) and study the loss function/ accuracy. This could take several hours so don't forget to use the callbacks to save the weights.
+- Add Batch normalization layers and dropout. Does it help to converge?
+- Do a PCA analysis and k-means on the layer before the classifier. 
+- Implement the data augmentation. Explore the generated images and train the model with data augmentation.
+- At the end of the day, you should be able to reach more than 80% of accuracy on the test set.
+- Apply the transfer learning for the cifar10 classification (10 epochs). How well is working the transfer learning?
+
+
+
 
 ## Homework Reinforcement Learning (Gorka Muñoz-Gil)
 
