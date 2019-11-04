@@ -130,9 +130,9 @@ class RBM(nn.Module):
                 self.v_bias_update.data += (lr * self.deltav)
 
                     
-                self.W.data      += self.W_update.data
-                self.h_bias.data += self.h_bias_update.data
-                self.v_bias.data += self.v_bias_update.data
+            self.W.data      += self.W_update.data
+            self.h_bias.data += self.h_bias_update.data
+            self.v_bias.data += self.v_bias_update.data
                 
-                loss_.append(F.mse_loss(self.vneg, self.vpos).data[0])
+            loss_.append(F.mse_loss(self.vneg, self.vpos).data)
 
