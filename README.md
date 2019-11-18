@@ -108,12 +108,7 @@ c) Apply now the *e*-greedy algorithm, for *e* = [0.1, 0.01]. Do the two previou
 
 The function creating the multi-armed bandit can be found in *RL/MBA.py*
 
-**Second assignment:**
-This homework will be based on the concepts exposed in this [colab notebook](https://colab.research.google.com/drive/12HsUTlcXThcJm0ua0hdv7Ibg3fsYdfqc). Check the section *Homeworks* in the notebook more for details. 
 
-a) Create an agent that is able to win in the Frozen Lake game with the optimal path. This means, the path with the smaller number of steps. Compare the results when training the agent with Q-table and the Q-network. Explain why one is better than the other.
-
-b) Use the Q-network to train an agent on the Cart-Pole game. See details on the Cart-Pole in the notebook.
 
 # Google Colab File
 For those who cannot make all the packages run on their computer, they can create a google Colab file. For this they need a google / gmail account and access their google drive.
