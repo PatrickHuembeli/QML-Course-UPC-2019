@@ -1,5 +1,14 @@
 # QML-Course-UPC-2019
-Coding exercises for UPC QML course
+
+## Lecture 21st of November (Patrick Huembeli)
+
+Today we will have a look at several tools in QML.
+
+- Click [here](https://colab.research.google.com/drive/1P2s0FnbMPP5DpANetLClEVkCAtTxDkIX) to get to the collab file for Pennylane.
+
+- There is also a [medium post](https://medium.com/@patrick.huembeli/introduction-into-quantum-support-vector-machines-727f3ccfa2b4) about quantum support vector machines. And [this colab file](https://drive.google.com/file/d/1MBEtVF-iS23sEmZwH3VEU3t_DwpQOpOq/view?usp=sharing) gives a brief introduction how to implement it in Qiskit.
+
+# Coding exercises for UPC QML course
 
 # Homework
 - First you need to set up your programming environment. If you have a Linux or Mac computer then we recommend installing [Conda](https://www.anaconda.com/download/#macos) and install all the packages with it. Google will help you out.
