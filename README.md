@@ -1,6 +1,6 @@
-# QML-Course-UPC-2019
+# QML-Course-UPC-2020
 
-## Lecture 21st of November (Patrick Huembeli)
+## Lecture 17th of November (Patrick Huembeli)
 
 Today we will have a look at several tools in QML.
 
